@@ -1,6 +1,6 @@
 # Project Desafio Wishlist
 
-API for a wishlist and a CRUD operations for a client database using django framework with djongo. 
+API for a wishlist and CRUD operations for a client database using django framework with djongo. 
 
 
 It will load two pages. One for the products to be added and another for the clients CRUD operations. 
