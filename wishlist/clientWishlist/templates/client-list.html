@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card-body">
+    <h4>Lista Cliente</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Email</th>
+                <th scope="col">id_produto</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for client in clients %}
+            <tr>
+                <td>{{ client.nome }}</td>
+                <td>{{ client.email }}</td>
+                <td>
+                    {% for prd in client.wishlist %}
+                        {{ prd }}
+                    {% endfor %}
+                </td>
+                <!-- <td>{{ client.wishlist }}</td> -->
+                <td><a type="button" class="btn btn-warning" href="/client-update/{{ client.id }}">Update</a>
+                    <a type="button" class="btn btn-danger" href="/client-delete/{{ client.id }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a type="button" class="btn btn-success" href="{%url 'client-create' %}">Create</a>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+<!-- {% extends "base.html" %} -->
+{% load static %}
+{% block content %}
+<head>
+  <link href="{%  static  '/css/style.css'  %}" rel="stylesheet">
+  <title>Teste</title>
+</head>
+<body>
+  <figure class="grid-container">
+    {% csrf_token %}
+    {% for i in produtos %}
+    <form class="grid-item" method="POST" action="adicionar">
+      <img src="http://encurtador.com.br/dhrP2" alt="produto">
+      <figcaption>{{ i.title }}</figcaption>
+      <div class="price">R$ {{ i.price }}</div>
+      <button type="submit">Favoritar</button>
+    </form>
+    
+    {% endfor %}
+  </figure>
+</body>
+{% endblock %}
+
